@@ -41,7 +41,9 @@ export default function ProductCard(props) {
                         <Chip label={`$ ${product.price}`} color="primary" />
                     </Grid>
                     <Grid>
-                        <Button variant="outlined" onClick={handleAddToCart}>Add to cart <AddShoppingCartIcon /></Button>
+                        <Button color="secondary" onClick={handleAddToCart} variant="contained">
+                            Add to cart <AddShoppingCartIcon sx={{ml:2}}/>
+                        </Button>
                     </Grid>
                 </Grid>
             </CardActions>

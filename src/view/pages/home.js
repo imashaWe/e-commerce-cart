@@ -3,21 +3,28 @@ import {Grid} from "@mui/material";
 import {fetchProducts} from "../../actions/product-action";
 import ProductCard from "../componets/product-card";
 import {useEffect} from "react";
+import CardSkeleton from "../componets/card-skeleton";
 
 export default function Home() {
     const dispatch = useDispatch()
     const products = useSelector((state) => state.products)
+
     useEffect(() => {
         dispatch(fetchProducts());
-    }, [0])
+    }, [0]);
+
     if (!products.length) {
-        return <h1>No data</h1>;
-    }
-    return <>
-        <Grid container>
+        return <Grid container>
             {
-                products.map((p) => <Grid xs={4} spacing={3}><ProductCard product={p}/></Grid>)
+                Array.from(new Array(20)).map((i) => <Grid xs={4} spacing={3}><CardSkeleton/></Grid>)
             }
         </Grid>
-    </>
+    }
+
+    return <Grid container>
+        {
+            products.map((p) => <Grid xs={4} spacing={3}><ProductCard product={p}/></Grid>)
+        }
+    </Grid>;
+
 }
