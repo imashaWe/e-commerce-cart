@@ -5,19 +5,19 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {IconButton} from "@mui/material";
+import {Chip, Grid, IconButton} from "@mui/material";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 
 
 export default function ProductCard(props) {
     const product = props.product;
     return (
-        <Card sx={{ maxWidth: 345 }}>
+        <Card sx={{ maxWidth: 345  ,marginY:2}}>
             <CardMedia
                 component="img"
                 alt="green iguana"
                 height="140"
-                image={product.image}
+                image={product.thumbnail}
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
@@ -27,10 +27,15 @@ export default function ProductCard(props) {
                     {product.description}
                 </Typography>
             </CardContent>
-            <CardActions disableSpacing>
-                <IconButton color="primary" aria-label="add to shopping cart">
-                    <AddShoppingCartIcon />
-                </IconButton>
+            <CardActions>
+                <Grid container justifyContent="space-between">
+                    <Grid item>
+                        <Chip label={`$ ${product.price}`} color="primary" />
+                    </Grid>
+                    <Grid>
+                        <Button variant="outlined">Add to cart <AddShoppingCartIcon /></Button>
+                    </Grid>
+                </Grid>
             </CardActions>
         </Card>
     );

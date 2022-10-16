@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {Button, Grid} from "@mui/material";
+import {Grid} from "@mui/material";
 import {fetchProducts} from "../../actions/product-action";
 import ProductCard from "../componets/product-card";
 import {useEffect} from "react";
@@ -16,7 +16,7 @@ export default function Home() {
     return <>
         <Grid container>
             {
-                products.map((p) => <Grid xs={4}><ProductCard product={p}/></Grid>)
+                products.map((p) => <Grid xs={4} spacing={3}><ProductCard product={p}/></Grid>)
             }
         </Grid>
     </>

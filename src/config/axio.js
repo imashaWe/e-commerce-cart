@@ -1,3 +1,3 @@
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://fakestoreapi.com';
+axios.defaults.baseURL = 'https://dummyjson.com';
