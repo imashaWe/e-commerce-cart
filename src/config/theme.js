@@ -10,6 +10,9 @@ const theme = createTheme({
         },
         background: {
             main: "#F7F7F7"
+        },
+        info: {
+            main: "#fff"
         }
     },
 });

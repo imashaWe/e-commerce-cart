@@ -148,7 +148,7 @@ export default function TopAppBar() {
                             variant="h6"
                             noWrap
                             component="div"
-                            sx={{display: {xs: 'none', sm: 'block'}}}
+                            sx={{display: {xs: 'none', sm: 'block'},color:'#fff'}}
                         >
                             {APP_NAME}
                         </Typography>
@@ -181,7 +181,7 @@ export default function TopAppBar() {
                                 aria-controls={mobileMenuId}
                                 aria-haspopup="true"
                                 onClick={handleMobileMenuOpen}
-                                color="inherit"
+                                color="info"
                             >
                                 <MoreIcon/>
                             </IconButton>
