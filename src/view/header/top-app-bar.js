@@ -13,6 +13,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import MoreIcon from '@mui/icons-material/MoreVert';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import {APP_NAME} from "../../config/constants";
+import {Link, useNavigate} from "react-router-dom";
 
 const Search = styled('div')(({theme}) => ({
     position: 'relative',
@@ -61,6 +62,8 @@ export default function TopAppBar() {
     const isMenuOpen = Boolean(anchorEl);
     const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
+    const navigate = useNavigate();
+
     const handleMobileMenuClose = () => {
         setMobileMoreAnchorEl(null);
     };
@@ -74,6 +77,9 @@ export default function TopAppBar() {
         setMobileMoreAnchorEl(event.currentTarget);
     };
 
+    const handleShoppingCartClick = () => {
+        navigate("/cart");
+    }
     const menuId = 'primary-search-account-menu';
     const renderMenu = (
         <Menu
@@ -118,6 +124,7 @@ export default function TopAppBar() {
                     size="large"
                     aria-label="show 17 new items"
                     color="inherit"
+                    onClick={handleShoppingCartClick}
                 >
                     <Badge badgeContent={17} color="error">
                         <ShoppingCartIcon/>
@@ -157,6 +164,7 @@ export default function TopAppBar() {
                                 size="large"
                                 aria-label="show 17 new notifications"
                                 color="inherit"
+                                onClick={handleShoppingCartClick}
                             >
                                 <Badge badgeContent={17} color="error">
                                     <ShoppingCartIcon/>
