@@ -23,7 +23,7 @@ export default function Home() {
 
     return <Grid container>
         {
-            products.map((p) => <Grid xs={4} spacing={3}><ProductCard product={p}/></Grid>)
+            products.map((p) => <Grid xs={4} spacing={3} key={p.id}><ProductCard product={p}/></Grid>)
         }
     </Grid>;
 

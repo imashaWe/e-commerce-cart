@@ -20,7 +20,7 @@ export default function ProductCard(props) {
     }
 
     return (
-        <Card sx={{ maxWidth: 345  ,marginY:2}} key={product.id}>
+        <Card sx={{ maxWidth: 345  ,marginY:2}}>
             <CardMedia
                 component="img"
                 alt="green iguana"

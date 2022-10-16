@@ -13,8 +13,8 @@ export default function cartReducer(state = [], action) {
             }
 
         case REMOVE_FROM_CART:
-            if (state.qty === 1) {
-                state.items.slice(index,1);
+            if (state[index].qty === 1) {
+                state.slice(index,1);
                 return [...state];
             } else {
                 state[index].qty--;
