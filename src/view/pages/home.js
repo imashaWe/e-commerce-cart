@@ -16,7 +16,7 @@ export default function Home() {
     if (!products.length) {
         return <Grid container>
             {
-                Array.from(new Array(20)).map((i) => <Grid xs={4} spacing={3}><CardSkeleton/></Grid>)
+                Array.from(new Array(20)).map((n,i) => <Grid xs={4} spacing={3} key={i}><CardSkeleton/></Grid>)
             }
         </Grid>
     }
