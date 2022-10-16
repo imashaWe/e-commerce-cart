@@ -8,8 +8,8 @@ export default function Cart() {
                     <TableRow>
                         <TableCell>Item</TableCell>
                         <TableCell align="right">Quantity</TableCell>
-                        <TableCell align="right">Unit Price&nbsp;(g)</TableCell>
-                        <TableCell align="right">Amount&nbsp;(g)</TableCell>
+                        <TableCell align="right">Unit Price&nbsp;($)</TableCell>
+                        <TableCell align="right">Amount&nbsp;($)</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
