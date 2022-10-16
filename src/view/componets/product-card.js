@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {Chip, Grid, IconButton} from "@mui/material";
+import {Chip, Grid} from "@mui/material";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../actions/cart-action";
@@ -20,7 +20,7 @@ export default function ProductCard(props) {
     }
 
     return (
-        <Card sx={{ maxWidth: 345  ,marginY:2}}>
+        <Card sx={{ maxWidth: 345  ,marginY:2}} key={product.id}>
             <CardMedia
                 component="img"
                 alt="green iguana"

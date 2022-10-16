@@ -1,15 +1,24 @@
-import {ADD_TO_CART} from "../actions/types";
+import {ADD_TO_CART, REMOVE_FROM_CART} from "../actions/types";
 
 export default function cartReducer(state = [], action) {
+    const index = state.findIndex((item) => item.id === action.payload.id);
     switch (action.type) {
         case ADD_TO_CART:
-            const index = state.findIndex((item) => item.id === action.payload.id);
             if (index !== -1) {
                 state[index].qty++;
-                return state;
+                return [...state];
             } else {
                 action.payload.qty = 1;
                 return [...state, action.payload];
+            }
+
+        case REMOVE_FROM_CART:
+            if (state.qty === 1) {
+                state.items.slice(index,1);
+                return [...state];
+            } else {
+                state[index].qty--;
+                return [...state];
             }
 
         default:
