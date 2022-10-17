@@ -1,7 +1,7 @@
 import TopAppBar from "./view/header/top-app-bar";
 import {useRoutes} from "react-router-dom";
 import {routes} from "./config/routes";
-import {Box, Container, Grid} from "@mui/material";
+import {Box, Grid} from "@mui/material";
 
 function App() {
     const router = useRoutes(routes)
