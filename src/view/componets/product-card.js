@@ -5,22 +5,27 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import {Chip, Grid} from "@mui/material";
+import {Avatar, Chip, Grid} from "@mui/material";
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import {useDispatch} from "react-redux";
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../actions/cart-action";
 
 
 export default function ProductCard(props) {
     const product = props.product;
+    const cart = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
-    const handleAddToCart = ()=>{
+    const handleAddToCart = () => {
         dispatch(addToCart(product));
     }
 
+    const cartRef = cart.find((item) => item.id === product.id);
+    const qty = !cartRef ? 0 : cartRef.qty;
+
     return (
-        <Card sx={{ maxWidth: 345  ,marginY:2}}>
+        <Card sx={{maxWidth: 345, marginY: 2}}>
             <CardMedia
                 component="img"
                 alt="green iguana"
@@ -38,12 +43,21 @@ export default function ProductCard(props) {
             <CardActions>
                 <Grid container justifyContent="space-between">
                     <Grid item>
-                        <Chip label={`$ ${product.price}`} color="primary" />
+                        <Chip variant="outlined" color="secondary" avatar={<Avatar>$</Avatar>}
+                              label={`${product.price}`}/>
                     </Grid>
                     <Grid>
-                        <Button color="secondary" onClick={handleAddToCart} variant="contained">
-                            Add to cart <AddShoppingCartIcon sx={{ml:2}}/>
-                        </Button>
+                        {
+                            qty ?
+                                <Button color="secondary" onClick={handleAddToCart} variant="outlined">
+                                   Cart ({qty})
+                                    <ShoppingCartIcon sx={{ml: 2}}/>
+                                </Button>
+                                :
+                                <Button color="secondary" onClick={handleAddToCart} variant="contained">
+                                    Add to cart <AddShoppingCartIcon sx={{ml: 2}}/>
+                                </Button>
+                        }
                     </Grid>
                 </Grid>
             </CardActions>
