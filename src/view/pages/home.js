@@ -14,16 +14,16 @@ export default function Home() {
     }, [0]);
 
     if (!products.length) {
-        return <Grid container>
+        return <Grid container spacing={3}>
             {
-                Array.from(new Array(20)).map((n,i) => <Grid xs={4} spacing={3} key={i}><CardSkeleton/></Grid>)
+                Array.from(new Array(20)).map((n,i) => <Grid item xs={4}  key={i}><CardSkeleton/></Grid>)
             }
         </Grid>
     }
 
-    return <Grid container>
+    return <Grid container spacing={3}>
         {
-            products.map((p) => <Grid xs={4} spacing={3} key={p.id}><ProductCard product={p}/></Grid>)
+            products.map((p) => <Grid item xs={4} key={p.id}><ProductCard product={p}/></Grid>)
         }
     </Grid>;
 
