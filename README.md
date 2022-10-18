@@ -31,7 +31,7 @@
   <a href="#license">License</a>
 </p>
 
-![screenshot](https://raw.githubusercontent.com/amitmerchant1990/electron-markdownify/master/app/img/markdownify.gif)
+![screenshot](https://res.cloudinary.com/dxrhrbot0/image/upload/v1666076826/portfolio/e-commerce-cart/ezgif.com-gif-maker_1_hc5idx.gif)
 
 ## Key Features
 
